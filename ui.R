@@ -3,7 +3,7 @@ library(leaflet)
 
 # Define UI for application that creates a Leaflet map and summarizes fatality totals 
 shinyUI(fluidPage(
-
+  
   # Application title
   titlePanel("Airplane Fatalities, 1948-2019"),
   
@@ -12,17 +12,20 @@ shinyUI(fluidPage(
     sidebarPanel(
       sliderInput("Year",
                   "Choose a year:",
-                  min = as.Date("1948","%Y"),
-                  max = as.Date("2019","%Y"),
-                  value = as.Date("1950","%Y"))
-    ),
+                  min = 1974,
+                  max = 2019,
+                  value = 2000,
+                  sep="") # End slider input
+      ), # End sidebar panel
+    
     
     # Show a plot of the generated distribution
     mainPanel(
       leafletOutput("map",height = 1000),
       h3("Locations of Airline Fatalities for Chosen Year")
       
-    )
-    )
+    ) # End main page
+  ) # End sidebar layout
+  ) # End Fluid Page
   
-))
+) # End Shiny UI
