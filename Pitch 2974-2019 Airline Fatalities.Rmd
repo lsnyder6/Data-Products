@@ -1,0 +1,57 @@
+---
+title: "Airline Fatalities 1974-2019"
+author: "Laura Snyder"
+date: "May 2, 2019"
+output: ioslides_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr) 
+library(lubridate)
+library(leaflet)
+library(shiny)
+
+```
+
+## Airline Fatalities, 1974-2019
+
+Data representing airline fatalities, 1974-2019, as reported by the National Transportation Safety Board (NTSB) are explored in an interactive Leaflet plot. The full data set was downloaded as a csv file from https://www.ntsb.gov/_layouts/ntsb.aviation/index.aspx. Only aviation accidents involving 1 or more fatalities were included in the dataset.
+
+The NTSB aviation accident database contains information on civil aviation accidents and selected incidents within the United States, its territories and possessions, and in international waters.
+
+The purpose of the graph is to show worldwide aviation fatalities since 1974, by year, with a geographic represenation of where the fatalities occurred, and the number of fatalities per accident.
+
+Whereas data exists prior to 1974, dataset did not include longitude and latitude for those occurrences. Consequently, these events were not included in the visualization. There are some years for which no data is present. Use the label and popup feature to see the number of fatalities and the name of the location.
+
+## Impact
+The data set contained many factors that were not needed for the visualization, and was missing longitude and latitude coordinates in many cases (all cases prior to 1974). Data was subsetted and total fatalities can be examined under the summary function.
+
+```{r}
+try2<-read.csv("scrubbed.csv")
+  
+summarize(try2,total_fatalities=sum(try2$Total.Fatal.Injuries, na.rm=T)) 
+
+```
+    
+## The Leaflet Map
+
+Tombstones represent locations of fatalities for the year chosen.
+
+Note that most fatalities are marked in the United States; this is due to the fact that the data was collected by the United States on its own flights.
+
+Data was collected from https://www.ntsb.gov/_layouts/ntsb.aviation/index.aspx.
+
+Future improvements could influde getting coordinates for older locations, and embedding more avaialable information.
+
+## Visualization
+
+Here's a screen shot of a crash in MT in 2001.
+
+
+
+```{r try1, echo=FALSE, fig.cap="Screenshot of MT Fatality Site in 2001", out.width = '100%'}
+knitr::include_graphics("Screenshot.png")
+```
+

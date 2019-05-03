@@ -1,0 +1,31 @@
+---
+title: "Overview Week 4 Project"
+author: "Laura Snyder"
+date: "May 2, 2019"
+output: html_document
+---
+
+## Coursera Week 4 Project
+
+This project contains the elements of the Week 4 Project detailed below:
+
+1. Create a Shiny application and deploy it on Rstudio's servers.
+2. Use Rstudio Presenter to prepare a reproducible pitch presentation about the application.
+
+Application requirements:
+
+Some form of input (widget: textbox, radio button, checkbox, ...)
+Some operation on the ui input in sever.R
+Some reactive output displayed as a result of server calculations
+Enough documentation so that a novice user could use your application
+Documentation should be at the Shiny website
+
+Reproducible pitch requirements:
+
+5 page presentation completed in R Presenter
+Contains an expression that is evaluated
+Hosted on github or Rpubs
+Server calculation displayed in the html page
+No R errors displayed in the presentation
+
+
